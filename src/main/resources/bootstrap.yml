@@ -1,0 +1,25 @@
+server:
+  port: 9050
+
+spring:
+  application:
+    name: web1
+
+#日志
+log:
+  name: web1
+  base: /Users/wenyixicodedog/cloud_log_file
+logging:
+  config: classpath:logback-spring.xml
+
+#注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9010/eureka/
+
+feign:
+  hystrix:
+    enabled: true #加入熔断，当服务宕掉后，执行本地的方法
+
+logging.level.org.springframework.boot.autoconfigure: ERROR
